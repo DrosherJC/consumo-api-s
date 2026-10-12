@@ -10,18 +10,14 @@ async function getData() {
 
         const result = await response.json();
 
-        console.log(result);
-        console.log(result.message);
-
-        const imagen = document.querySelector("#message");
-        const status = document.querySelector("#status");
-
-        imagen.src = result.message;
-
-        status.textContent = result.status;
+        document.querySelector("#message").src = result.message;
+        document.querySelector("#dogUrl").textContent = result.message;
+        document.querySelector("#apiStatus").textContent = result.status.toUpperCase();
+        document.querySelector("#usrId").textContent = `#${Math.floor(Math.random() * 9000) + 1000}`;
 
     } catch (error) {
         console.error(error.message);
+        document.querySelector("#apiStatus").textContent = "ERROR";
     }
 }
 
