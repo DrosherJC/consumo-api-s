@@ -31,7 +31,7 @@
             justify-content: center;
             gap: 2rem;
             padding: 1rem;
-            background-image: 
+            background-image:
                 radial-gradient(circle at center, rgba(10, 28, 56, 0.6) 0%, var(--bg-dark) 90%),
                 linear-gradient(rgba(0, 242, 255, 0.03) 1px, transparent 1px),
                 linear-gradient(90deg, rgba(0, 242, 255, 0.03) 1px, transparent 1px);
@@ -59,33 +59,10 @@
             border: 2px solid var(--hud-cyan);
         }
 
-        .corner-tl {
-            top: -2px;
-            left: -2px;
-            border-right: 0;
-            border-bottom: 0;
-        }
-
-        .corner-tr {
-            top: -2px;
-            right: -2px;
-            border-left: 0;
-            border-bottom: 0;
-        }
-
-        .corner-bl {
-            bottom: -2px;
-            left: -2px;
-            border-right: 0;
-            border-top: 0;
-        }
-
-        .corner-br {
-            bottom: -2px;
-            right: -2px;
-            border-left: 0;
-            border-top: 0;
-        }
+        .corner-tl { top: -2px; left: -2px; border-right: 0; border-bottom: 0; }
+        .corner-tr { top: -2px; right: -2px; border-left: 0; border-bottom: 0; }
+        .corner-bl { bottom: -2px; left: -2px; border-right: 0; border-top: 0; }
+        .corner-br { bottom: -2px; right: -2px; border-left: 0; border-top: 0; }
 
         /* Estilos de Texto e Interfaz */
         .hud-header, .hud-footer {
@@ -140,11 +117,12 @@
             font-weight: 600;
         }
     </style>
-    
+
 </head>
 
 <body>
 
+    <!-- ============ TARJETA 1: PERRO (dog.ceo) ============ -->
     <div class="hud-frame">
 
         <!-- Esquinas Decorativas -->
@@ -153,69 +131,49 @@
         <div class="corner corner-bl"></div>
         <div class="corner corner-br"></div>
 
-
         <!-- Encabezado -->
         <div class="hud-header border-bottom pb-2 mb-3 d-flex justify-content-between align-items-center">
-
             <div>
                 <i class="fa-solid fa-circle text-info me-2 fs-6"></i>
                 VISOR INTELIGENTE
             </div>
-
             <div class="opacity-75">
                 ESTADO: ONLINE
             </div>
-
         </div>
-
 
         <!-- Contenido Principal (Zona Lateral + Centro) -->
         <div class="row g-3 align-items-center my-2">
-            
+
             <!-- Panel Izquierdo (Métricas estáticas/API) -->
             <div class="col-md-3 d-none d-md-block">
-
                 <div class="hud-card mb-2">
-
                     <div class="hud-label">
                         ID CONSULTA
                     </div>
-
                     <div class="hud-value" id="usrId">
                         #0000
                     </div>
-
                 </div>
 
-
                 <div class="hud-card">
-
                     <div class="hud-label">
                         ESTADO API
                     </div>
-
                     <div class="hud-value text-success" id="apiStatus">
                         ESPERANDO
                     </div>
-
                 </div>
-
             </div>
 
-
-            <!-- Panel Central: Información del Usuario -->
+            <!-- Panel Central: Imagen -->
             <div class="col-md-6 text-center">
-
                 <div class="hud-card py-4">
-
                     <h5 class="hud-value fs-4 mb-3">
                         DATOS DE LA API
                     </h5>
-                    
-                
-                    <!-- AQUI SE MOSTRARÁN LOS DATOS DEL USUARIO OBTENIDOS DE LA API -->
 
-                    <img 
+                    <img
                         id="message"
                         class="user-avatar mb-3"
                         src=""
@@ -226,72 +184,53 @@
                         IMAGEN OBTENIDA
                     </div>
 
-                    <div 
+                    <div
                         id="dogUrl"
                         class="hud-value mt-2"
                         style="font-size: 0.6rem; word-break: break-all;"
                     >
                         Esperando datos...
                     </div>
-
-
                 </div>
-
             </div>
-
 
             <!-- Panel Derecho (Métricas estáticas/API) -->
             <div class="col-md-3 d-none d-md-block">
-
                 <div class="hud-card mb-2 text-end">
-
                     <div class="hud-label">
                         LATENCIA
                     </div>
-
                     <div class="hud-value">
                         14 ms
                     </div>
-
                 </div>
 
-
                 <div class="hud-card text-end">
-
                     <div class="hud-label">
                         FORMATO
                     </div>
-
                     <div class="hud-value">
                         JSON
                     </div>
-
                 </div>
-
             </div>
 
         </div>
 
-
         <!-- Pie de página y Control -->
         <div class="hud-footer border-top pt-3 mt-2 d-flex justify-content-between align-items-center">
-
             <button class="btn-hud" onclick="getData()">
-
                 <i class="fa-solid fa-arrows-rotate me-1"></i>
                 DATA
-
             </button>
-
             <span class="hud-label">
                 MODO: CONSUMO DE API REST
             </span>
-
         </div>
 
     </div>
 
-
+    <!-- ============ TARJETA 2: USUARIO (jsonplaceholder) ============ -->
     <div class="hud-frame">
 
         <!-- Esquinas Decorativas -->
@@ -300,69 +239,49 @@
         <div class="corner corner-bl"></div>
         <div class="corner corner-br"></div>
 
-
         <!-- Encabezado -->
         <div class="hud-header border-bottom pb-2 mb-3 d-flex justify-content-between align-items-center">
-
             <div>
                 <i class="fa-solid fa-circle text-info me-2 fs-6"></i>
                 VISOR INTELIGENTE
             </div>
-
             <div class="opacity-75">
                 ESTADO: ONLINE
             </div>
-
         </div>
-
 
         <!-- Contenido Principal (Zona Lateral + Centro) -->
         <div class="row g-3 align-items-center my-2">
-            
+
             <!-- Panel Izquierdo (Métricas estáticas/API) -->
             <div class="col-md-3 d-none d-md-block">
-
                 <div class="hud-card mb-2">
-
                     <div class="hud-label">
                         ID CONSULTA
                     </div>
-
                     <div class="hud-value" id="usrId2">
                         #0000
                     </div>
-
                 </div>
 
-
                 <div class="hud-card">
-
                     <div class="hud-label">
                         ESTADO API
                     </div>
-
                     <div class="hud-value text-success" id="apiStatus2">
                         ESPERANDO
                     </div>
-
                 </div>
-
             </div>
-
 
             <!-- Panel Central: Información del Usuario -->
             <div class="col-md-6 text-center">
-
                 <div class="hud-card py-4">
-
                     <h5 class="hud-value fs-4 mb-3">
                         DATOS DE LA API
                     </h5>
-                    
-                
-                    <!-- AQUI SE MOSTRARÁN LOS DATOS DEL USUARIO OBTENIDOS DE LA API -->
 
-                    <img 
+                    <img
                         id="message2"
                         class="user-avatar mb-3"
                         src=""
@@ -373,73 +292,135 @@
                         NOMBRE
                     </div>
 
-                    <div 
+                    <div
                         id="dogUrl2"
                         class="hud-value mt-2"
                         style="font-size: 0.6rem; word-break: break-all;"
                     >
                         Esperando datos...
                     </div>
-
-
                 </div>
-
             </div>
-
 
             <!-- Panel Derecho (Métricas estáticas/API) -->
             <div class="col-md-3 d-none d-md-block">
-
                 <div class="hud-card mb-2 text-end">
-
                     <div class="hud-label">
                         LATENCIA
                     </div>
-
                     <div class="hud-value">
                         14 ms
                     </div>
-
                 </div>
 
-
                 <div class="hud-card text-end">
-
                     <div class="hud-label">
                         FORMATO
                     </div>
-
                     <div class="hud-value">
                         JSON
                     </div>
-
                 </div>
-
             </div>
 
         </div>
 
-
         <!-- Pie de página y Control -->
         <div class="hud-footer border-top pt-3 mt-2 d-flex justify-content-between align-items-center">
-
             <button class="btn-hud" onclick="getAvatar()">
-
                 <i class="fa-solid fa-arrows-rotate me-1"></i>
                 DATA
-
             </button>
-
             <span class="hud-label">
                 MODO: CONSUMO DE API REST
             </span>
-
         </div>
 
     </div>
 
-</body>
+    <!-- ============ TARJETA 3: PRODUCTO (fakestoreapi) ============ -->
+    <div class="hud-frame">
+
+        <!-- Esquinas Decorativas -->
+        <div class="corner corner-tl"></div>
+        <div class="corner corner-tr"></div>
+        <div class="corner corner-bl"></div>
+        <div class="corner corner-br"></div>
+
+        <!-- Encabezado -->
+        <div class="hud-header border-bottom pb-2 mb-3 d-flex justify-content-between align-items-center">
+            <div><i class="fa-solid fa-circle text-info me-2 fs-6"></i>VISOR INTELIGENTE</div>
+            <div class="opacity-75">ESTADO: ONLINE</div>
+        </div>
+
+        <!-- Contenido Principal (Zona Lateral + Centro) -->
+        <div class="row g-3 align-items-center my-2">
+
+            <!-- Panel Izquierdo (Métricas estáticas/API) -->
+            <div class="col-md-3 d-none d-md-block">
+                <div class="hud-card mb-2">
+                    <div class="hud-label">ID PRODUCTO</div>
+                    <div class="hud-value" id="productId">#0000</div>
+                </div>
+                <div class="hud-card">
+                    <div class="hud-label">ESTADO API</div>
+                    <div class="hud-value text-success" id="productStatus">ESPERANDO</div>
+                </div>
+            </div>
+
+            <!-- Panel Central: Detalle del Producto -->
+            <div class="col-md-6 text-center">
+                <div class="hud-card py-4">
+                    <h5 class="hud-value fs-4 mb-3">DETALLE DEL PRODUCTO</h5>
+
+                    <img
+                        id="productImage"
+                        class="user-avatar mb-3"
+                        src=""
+                        alt="Imagen del producto"
+                    >
+
+                    <div class="hud-label">
+                        PRODUCTO
+                    </div>
+
+                    <div
+                        id="productTitle"
+                        class="hud-value mt-2"
+                        style="font-size: 0.75rem; word-break: break-word;"
+                    >
+                        Esperando datos...
+                    </div>
+                </div>
+            </div>
+
+            <!-- Panel Derecho (Métricas estáticas/API) -->
+            <div class="col-md-3 d-none d-md-block">
+                <div class="hud-card mb-2 text-end">
+                    <div class="hud-label">PRECIO</div>
+                    <div class="hud-value" id="productPrice">-</div>
+                </div>
+                <div class="hud-card text-end">
+                    <div class="hud-label">CATEGORÍA</div>
+                    <div class="hud-value" id="productCategory" style="font-size: 0.75rem;">-</div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Pie de página y Control -->
+        <div class="hud-footer border-top pt-3 mt-2 d-flex justify-content-between align-items-center">
+            <button class="btn-hud" onclick="ecommerceApi()">
+                <i class="fa-solid fa-arrows-rotate me-1"></i> DATA
+            </button>
+            <span class="hud-label">MODO: CONSUMO DE API REST</span>
+        </div>
+    </div>
+
     <script src="./doc.js"></script>
     <script src="./jsonAPI.js"></script>
+    <script src="./ecommerce.js"></script>
+
+</body>
 
 </html>
